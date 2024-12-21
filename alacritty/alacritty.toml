@@ -1,0 +1,55 @@
+general.import = ["~/.config/alacritty/themes/oceanic_next.toml"]
+
+general.working_directory = "/home/arch"
+
+[env]
+TERM = "alacritty"
+SHELL = "/bin/zsh"
+
+[font]
+size = 19
+
+[font.bold]
+family = "JetBrainsMonoNerdFontMono"
+style = "Bold"
+
+[font.italic]
+family = "JetBrainsMonoNerdFontMono"
+style = "Italic"
+
+[font.normal]
+family = "JetBrainsMonoNerdFontMono"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "F11"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "PageUp"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "PageDown"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "="
+mods = "Control"
+
+[scrolling]
+history = 1000
+
+[window]
+opacity = 1
+
+[mouse]
+hide_when_typing = true
+
+[window.padding]
+x = 0
+y = 0
+

@@ -1,0 +1,126 @@
+@super + j
+    djview
+
+@super + d
+    designer
+
+@super + k
+    /home/arch/KeePassXC/./KeePassXC-2.7.9-x86_64.AppImage
+
+@super + z
+    /home/arch/clion/bin/./clion.sh
+
+@super + v
+    code --disable-gpu
+
+@super + r
+    remmina
+
+@super + {Return, space}
+    alacritty msg create-window || exec alacritty
+
+@Print
+    maim | xclip -selection clipboard -t image/png
+
+alt + shift
+    setxkbmap -query | grep -q 'ru' && setxkbmap us || setxkbmap ru,us
+
+ctrl + shift + Left
+    xdotool key ctrl+shift+Left
+
+ctrl + shift + Right
+    xdotool key ctrl+shift+Left
+
+@super + q
+    qtcreator
+
+@super + f
+    /home/arch/freetube/./freetube
+
+@super + g
+    gpick
+
+@super + n
+    nemo
+
+@super + l
+    firefox
+
+@super + p
+    /home/arch/.local/share/JetBrains/pycharm-2024.1.4/bin/./pycharm.sh
+
+@super + t
+    telegram-desktop
+
+@super + y
+    proxychains flatpak run org.telegram.desktop
+
+@super + b
+    /home/arch/obsidian/./Obsidian-1.7.4.AppImage
+
+@super + o
+	obs
+
+#ПЕРЕЗАГРУЗИТЬ КОНФИГ SXHKD
+@super + s
+    pkill -USR1 -x sxhkd
+
+#ВЫЙТИ/ПЕРЕЗАГРУЗИТЬ BSPWM
+@super + shift + {q,r}
+    bspc {quit,wm -r}
+
+#ПЕРЕЗАГРУЗКА
+@super + ctrl + r
+    reboot
+
+#ВЫКЛЮЧЕНИЕ
+@super + ctrl + p
+    poweroff
+
+#ГИБЕРНАЦИЯ
+@super + ctrl + s
+	systemctl suspend
+
+
+#ПОМЕНЯТЬ СТАТУС ОКНА НА /ТАЙЛОВОЕ/ПСЕВДО ТАЙЛОВОЕ/ПЛАВАЮЩЕЕ/ПОЛНОЭКРАННОЕ
+@super + alt + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+	bspc node -g {marked,locked,sticky,private}
+
+#ВЫБРАТЬ НАПРАВЛЕНИЕ В КОТОРОМ ОТКРОЕТСЯ НОВОЕ ОКНО
+@super + alt + {Left,Down,Up,Right}
+	bspc node -p {west,south,north,east}
+
+#ОТМЕНИТЬ НАПРАВЛЕНИЕ В КОТОРОМ ОТКРОЕТСЯ НОВОЕ ОКНО
+@super + alt + space
+	bspc node -p cancel
+
+#ПЕРЕКЛЮЧИТСЯ НА ВОРКСПЕЙС ИЛИ ПЕРЕТАЩИТЬ НА НЕГО АКТИВНОЕ ОКНО
+@super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+#ЗАКРЫТЬ ОКНО ИЛИ УБИТЬ ЕГО
+@super + {_, shift + }c
+	bspc node -{c}
+
+#ПЕРЕМЕЩЕНИЕ ТАЙЛИНГОВЫХ ОКОН
+@super + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
+
+#РЕСАЙЗ ТАЙЛИНГОВЫХ ОКОН
+@super + ctrl + {Left,Down,Up,Right}
+	{bspc node -z left -20 0; bspc node -z right -20 0, \
+	bspc node -z bottom 0 20; bspc node -z top 0 20, \
+	bspc node -z bottom 0 -20; bspc node -z top 0 -20, \ 
+	bspc node -z left 20 0; bspc node -z right 20 0}
+
+#РЕСАЙЗА ПЛАВАЮЩИХ ОКОН
+@alt + ctrl + {Left,Down,Up,Right}
+	{bspc node -z right -20 20, \
+	bspc node -z bottom 20 20, \
+	bspc node -z bottom 20 -20, \
+	bspc node -z right 20 20}
+
+#ПЕРЕМЕЩЕНИЕ ПЛАВАЮЩИХ ОКОН 
+@ctrl + shift + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}

@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# Restart polybar and sxhkd daemon
+pkill polybar && sleep 1
+polybar -c ~/.config/my_config/ux/polybar/config.ini &
+sxhkd -c ~/.config/my_config/ux/sxhkd/sxhkdrc &
+
+# Specify desktops amount
+bspc monitor -d 1 2 3 4 5 6 7 8 9
+
+# Rules for apps without a desktop specification
+bspc rule -a feh state=floating
+bspc rule -a Gpick state=floating position='center'
+bspc rule -a QPick state=floating position='center'
+
+# Desktop 1
+bspc rule -a Designer state=tiled desktop='^1'
+bspc rule -a code-oss state=tiled desktop='^1'
+bspc rule -a obsidian state=tiled desktop='^1'
+bspc rule -a "VirtualBox Manager" state=tiled desktop='^1'
+
+# Desktop 2
+bspc rule -a Session state=tiled desktop='^2'
+bspc rule -a jetbrains-idea state=tiled desktop='^2'
+bspc rule -a jetbrains-clion state=tiled desktop='^2'
+bspc rule -a jetbrains-pycharm state=tiled desktop='^2'
+
+# Desktop 3
+bspc rule -a firefox state=tiled desktop='^3'
+bspc rule -a qutebrowser state=tiled desktop='^3'
+
+# Desktop 4
+bspc rule -a AyuGramDesktop state=tiled follow=off desktop='^4'
+bspc rule -a TelegramDesktop state=tiled follow=off desktop='^4'
+
+# Desktop 5
+bspc rule -a FreeTube state=tiled follow=off desktop='^5'
+
+# Desktop 6
+bspc rule -a KeePassXC state=tiled desktop='^6'
+bspc rule -a Chromium-browser state=tiled follow=off desktop='^6'
+
+# Configure windows appearance
+bspc config border_width 3 # 4
+bspc config window_gap 0 # 15
+bspc config split_ratio 0
+
+# Colors
+bspc config normal_border_color "#40515b"
+bspc config active_border_color "#152128"
+bspc config focused_border_color "#6699cc"
+bspc config presel_feedback_color "#152128"
+
+# Pointer
+bspc config pointer_modifier super
+bspc config focus_follows_pointer false
+
+# Monocles config
+bspc config single_monocle true
+bspc config gapless_monocle false
+bspc config borderless_monocle 
+bspc config paddingless_monocle true
