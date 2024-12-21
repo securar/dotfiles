@@ -1,3 +1,4 @@
+### Installation
 ```shell
 mv ~/.xinitrc ~/.xinitrc.backup
 git clone https://github.com/securar/dotfiles
